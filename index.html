@@ -3,720 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Network - Protect Earth</title>
+    <title>Black Lives Matter</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         :root {
-            --primary: #2e7d32;
-            --secondary: #4caf50;
-            --accent: #8bc34a;
-            --light: #e8f5e9;
-            --dark: #1b5e20;
-            --text: #333333;
+            --primary: #000000; /* black */
+            --secondary: #111111;
+            --accent: #ffd400; /* yellow accent */
+            --light: #f5f5f5;
+            --dark: #000000;
+            --text: #222222;
             --white: #ffffff;
         }
-
-        body {
-            background-color: var(--light);
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        header {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--white);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-
-        .logo i {
-            font-size: 2rem;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
-            position: relative;
-        }
-
-        nav ul li a:hover {
-            color: var(--accent);
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: var(--white);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        section {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent);
-            border-radius: 2px;
-        }
-
-        .section-title p {
-            color: var(--text);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-img {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .about-img:hover img {
-            transform: scale(1.05);
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem 1rem;
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .stat-item i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .stat-item h3 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-item p {
-            color: var(--text);
-        }
-
-        .initiatives {
-            background-color: var(--white);
-        }
-
-        .initiatives-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .initiative-card {
-            background-color: var(--light);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .initiative-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .initiative-img {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .initiative-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .initiative-card:hover .initiative-img img {
-            transform: scale(1.1);
-        }
-
-        .initiative-content {
-            padding: 1.5rem;
-        }
-
-        .initiative-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .initiative-content p {
-            margin-bottom: 1.5rem;
-        }
-
-        .cta {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--white);
-            text-align: center;
-            padding: 5rem 0;
-        }
-
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta .btn {
-            background-color: var(--white);
-            color: var(--primary);
-        }
-
-        .cta .btn:hover {
-            background-color: var(--accent);
-            color: var(--white);
-        }
-
-        footer {
-            background-color: var(--dark);
-            color: var(--white);
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--accent);
-        }
-
-        .footer-column p {
-            margin-bottom: 1rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links li a {
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links li a:hover {
-            color: var(--accent);
-            padding-left: 5px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: var(--white);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background-color: var(--accent);
-            transform: translateY(-5px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        @media (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .initiatives-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary);
-                flex-direction: column;
-                padding: 1rem 0;
-                text-align: center;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            }
-            
-            nav ul.active {
-                display: flex;
-            }
-            
-            nav ul li {
-                margin: 0;
-                padding: 0.8rem 0;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .initiatives-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Animation for stats counter */
-        .counter {
-            transition: all 0.5s ease;
-        }
+        body { background-color: var(--light); color: var(--text); line-height: 1.6; }
+        header { background: linear-gradient(90deg,var(--primary),var(--secondary)); color: var(--white); padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 1.6rem; font-weight: 800; }
+        .logo i { font-size: 1.8rem; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 1.5rem; }
+        nav ul li a { color: var(--white); text-decoration: none; font-weight: 600; transition: all 0.2s ease; padding: 0.5rem 0; }
+        nav ul li a:hover { color: var(--accent); }
+        .hero { background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1598871401313-2df5f7f29c3b?auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center; height: 78vh; display: flex; align-items: center; text-align: center; color: var(--white); }
+        .hero-content { max-width: 900px; margin: 0 auto; }
+        .hero h1 { font-size: 3.2rem; margin-bottom: 0.8rem; letter-spacing: 1px; }
+        .hero p { font-size: 1.2rem; margin-bottom: 1.5rem; }
+        .btn { display: inline-block; background-color: var(--accent); color: var(--dark); padding: 0.75rem 1.8rem; border-radius: 40px; text-decoration: none; font-weight: 700; border: none; cursor: pointer; }
+        .btn:hover { transform: translateY(-3px); }
+        section { padding: 4rem 0; }
+        .section-title { text-align: center; margin-bottom: 2.5rem; }
+        .section-title h2 { font-size: 2.2rem; color: var(--dark); margin-bottom: 0.5rem; }
+        .section-title p { max-width: 700px; margin: 0 auto; color: var(--text); }
+        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
+        .about-img { border-radius: 8px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+        .about-img img { width: 100%; height: auto; display: block; }
+        .about-text h3 { font-size: 1.6rem; margin-bottom: 1rem; }
+        .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 2rem; }
+        .stat-item { text-align: center; padding: 1.5rem 1rem; background-color: var(--white); border-radius: 8px; box-shadow: 0 5px 12px rgba(0,0,0,0.04); }
+        .stat-item i { font-size: 2rem; color: var(--dark); margin-bottom: 0.5rem; }
+        .initiatives-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+        .initiative-card { background-color: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 12px rgba(0,0,0,0.05); }
+        .initiative-img { height: 180px; overflow: hidden; }
+        .initiative-img img { width: 100%; height: 100%; object-fit: cover; }
+        .initiative-content { padding: 1rem; }
+        .cta { background: var(--primary); color: var(--white); text-align: center; padding: 3.5rem 0; }
+        footer { background-color: #111111; color: var(--white); padding: 2rem 0; }
+        .footer-content { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; }
+        .footer-column h3 { font-size: 1.1rem; margin-bottom: 0.8rem; }
+        .social-links { display: flex; gap: 0.8rem; }
+        .mobile-menu { display: none; font-size: 1.4rem; cursor: pointer; }
+        @media (max-width: 992px) { .about-content { grid-template-columns: 1fr; } .initiatives-grid { grid-template-columns: repeat(2,1fr); } .footer-content { grid-template-columns: repeat(2,1fr); } .stats { grid-template-columns: repeat(2,1fr); } }
+        @media (max-width: 768px) { nav ul { display: none; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--primary); flex-direction: column; padding: 1rem 0; } nav ul.active { display: flex; } .mobile-menu { display: block; } .initiatives-grid { grid-template-columns: 1fr; } .footer-content { grid-template-columns: 1fr; } .stats { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container nav-container">
             <div class="logo">
-                <i class="fas fa-seedling"></i>
-                <span>Green Network</span>
+                <i class="fas fa-fist-raised"></i>
+                <span>Black Lives Matter</span>
             </div>
             <nav>
-                <div class="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
+                <div class="mobile-menu"><i class="fas fa-bars"></i></div>
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#initiatives">Initiatives</a></li>
-                    <li><a href="#get-involved">Get Involved</a></li>
+                    <li><a href="#resources">Resources</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
-            <h1>Protect Our Planet, Preserve Our Future</h1>
-            <p>Join the global movement to create a sustainable world through conservation, education, and community action.</p>
-            <a href="#get-involved" class="btn">Join Our Network</a>
+            <h1>Black Lives Matter</h1>
+            <p>Working to end state-sanctioned violence, build local power, and invest in Black futures.</p>
+            <a href="#get-involved" class="btn">Get Involved</a>
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about">
         <div class="container">
             <div class="section-title">
-                <h2>About Green Network</h2>
-                <p>We are a global community dedicated to environmental protection and sustainable development.</p>
+                <h2>About the Movement</h2>
+                <p>Black Lives Matter is a global movement that campaigns against systemic racism and violence toward Black people.</p>
             </div>
             <div class="about-content">
                 <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Team planting trees">
+                    <img src="https://images.unsplash.com/photo-1598367274387-f4c4b1a7a0b1?auto=format&fit=crop&w=2070&q=80" alt="Protest"/>
                 </div>
                 <div class="about-text">
                     <h3>Our Mission</h3>
-                    <p>Green Network is committed to creating a sustainable future by protecting natural ecosystems, promoting renewable energy, and empowering communities to take environmental action.</p>
-                    <p>Founded in 2010, we've grown from a small grassroots organization to an international network with over 50,000 members across 120 countries.</p>
-                    <p>Our approach combines scientific research, community engagement, and policy advocacy to address the most pressing environmental challenges of our time.</p>
-                    <a href="#" class="btn">Learn More</a>
+                    <p>Black Lives Matter works inside and outside of the system to heal the past, reimagine the present, and invest in the future of Black lives through policy change, community investment, and cultural work.</p>
+                    <p><strong>Founded:</strong> 2013 — co-founded by Alicia Garza, Patrisse Cullors, and Opal Tometi.</p>
+                    <p>The movement is decentralized and emphasizes local organizing, direct action, and policy advocacy to address police brutality, mass incarceration, and racial inequities.</p>
+                    <a href="#initiatives" class="btn">Learn More</a>
                 </div>
             </div>
+
             <div class="stats">
                 <div class="stat-item">
-                    <i class="fas fa-tree"></i>
-                    <h3 class="counter" data-target="2500000">0</h3>
-                    <p>Trees Planted</p>
+                    <i class="fas fa-hands-helping"></i>
+                    <h3 class="counter" data-target="1000000">0</h3>
+                    <p>Supporters</p>
                 </div>
                 <div class="stat-item">
-                    <i class="fas fa-users"></i>
-                    <h3 class="counter" data-target="50000">0</h3>
-                    <p>Active Members</p>
+                    <i class="fas fa-bullhorn"></i>
+                    <h3 class="counter" data-target="5000">0</h3>
+                    <p>Local Chapters</p>
                 </div>
                 <div class="stat-item">
-                    <i class="fas fa-globe-americas"></i>
-                    <h3 class="counter" data-target="120">0</h3>
+                    <i class="fas fa-book-open"></i>
+                    <h3 class="counter" data-target="20">0</h3>
+                    <p>Years of Movement (since 2013)</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-city"></i>
+                    <h3 class="counter" data-target="100">0</h3>
                     <p>Countries Reached</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-recycle"></i>
-                    <h3 class="counter" data-target="1500">0</h3>
-                    <p>Cleanup Projects</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Initiatives Section -->
     <section class="initiatives" id="initiatives">
         <div class="container">
             <div class="section-title">
-                <h2>Our Initiatives</h2>
-                <p>Discover the key programs and projects we're implementing to protect our planet.</p>
+                <h2>What We Do</h2>
+                <p>Action, advocacy, and support to protect Black lives and strengthen Black communities.</p>
             </div>
             <div class="initiatives-grid">
                 <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://dialogue.earth/content/uploads/2021/04/lessons-from-the-rush-to-reforest-china-dialogue-2400x1599.jpg" alt="Reforestation">
-                    </div>
+                    <div class="initiative-img"><img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=2000&q=80" alt="Policy & Advocacy"></div>
                     <div class="initiative-content">
-                        <h3>Global Reforestation</h3>
-                        <p>Planting millions of trees worldwide to restore ecosystems, combat climate change, and protect biodiversity.</p>
-                        <a href="#" class="btn">Learn More</a>
+                        <h3>Policy & Advocacy</h3>
+                        <p>Campaigning for legislative change that reduces harm to Black communities and increases accountability.</p>
+                        <a href="#resources" class="btn">Learn More</a>
                     </div>
                 </div>
                 <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Ocean Conservation">
-                    </div>
+                    <div class="initiative-img"><img src="https://images.unsplash.com/photo-1520975915002-3c0a4f1d3f2a?auto=format&fit=crop&w=2000&q=80" alt="Community Support"></div>
                     <div class="initiative-content">
-                        <h3>Ocean Conservation</h3>
-                        <p>Protecting marine ecosystems, reducing plastic pollution, and promoting sustainable fishing practices.</p>
-                        <a href="#" class="btn">Learn More</a>
+                        <h3>Community Investment</h3>
+                        <p>Providing resources, mutual aid, and support for grassroots projects centered on Black well-being.</p>
+                        <a href="#resources" class="btn">Learn More</a>
                     </div>
                 </div>
                 <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Renewable Energy">
-                    </div>
+                    <div class="initiative-img"><img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=2000&q=80" alt="Arts & Culture"></div>
                     <div class="initiative-content">
-                        <h3>Renewable Energy</h3>
-                        <p>Promoting solar, wind, and other clean energy sources to reduce dependence on fossil fuels.</p>
-                        <a href="#" class="btn">Learn More</a>
+                        <h3>Arts & Culture</h3>
+                        <p>Supporting creators and cultural work that amplifies Black voices and perspectives.</p>
+                        <a href="#resources" class="btn">Learn More</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="cta" id="get-involved">
         <div class="container">
-            <h2>Join Our Global Movement</h2>
-            <p>Together, we can create a sustainable future for generations to come. Every action counts, no matter how small.</p>
-            <a href="#" class="btn">Become a Member</a>
+            <h2>Stand With Black Lives</h2>
+            <p>Sign up, donate, or join a local chapter — every action helps build a safer future.</p>
+            <a href="#resources" class="btn">Take Action</a>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer id="contact">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Green Network</h3>
-                    <p>We are dedicated to protecting our planet through collaborative action, education, and sustainable solutions.</p>
+                    <h3>Black Lives Matter</h3>
+                    <p>Committed to ending violence and building power for Black communities.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#about">About</a></li>
                         <li><a href="#initiatives">Initiatives</a></li>
+                        <li><a href="#resources">Resources</a></li>
                         <li><a href="#get-involved">Get Involved</a></li>
-                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Our Programs</h3>
+                    <h3>Resources</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Reforestation</a></li>
-                        <li><a href="#">Ocean Cleanup</a></li>
-                        <li><a href="#">Wildlife Protection</a></li>
-                        <li><a href="#">Climate Education</a></li>
-                        <li><a href="#">Sustainable Agriculture</a></li>
+                        <li><a href="#">Guides & Toolkits</a></li>
+                        <li><a href="#">Mutual Aid</a></li>
+                        <li><a href="#">Policy Priorities</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Copper Creek Drive, New York</p>
-                    <p><i class="fas fa-phone"></i> +1 (312) 171-0771</p>
-                    <p><i class="fas fa-envelope"></i> support@greennetwork.org</p>
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> info@blacklivesmatter.org</p>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 Green Network. All rights reserved.</p>
+            <div style="text-align:center; padding-top:1rem; border-top:1px solid rgba(255,255,255,0.05); color:rgba(255,255,255,0.7);">
+                <p>&copy; 2025 Black Lives Matter. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
         // Mobile Menu Toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('active');
-        });
+        document.querySelector('.mobile-menu').addEventListener('click', function(){ document.querySelector('nav ul').classList.toggle('active'); });
 
         // Counter Animation
-        function animateCounters() {
+        function animateCounters(){
             const counters = document.querySelectorAll('.counter');
-            const speed = 200; // The lower the slower
-            
+            const speed = 200;
             counters.forEach(counter => {
                 const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                
-                const inc = target / speed;
-                
-                if(count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(animateCounters, 1);
-                } else {
-                    counter.innerText = target;
-                }
+                let count = +counter.innerText;
+                const step = Math.max(1, Math.floor(target / speed));
+                const tick = () => {
+                    count += step;
+                    if(count < target){ counter.innerText = count; setTimeout(tick, 20); } else { counter.innerText = target; }
+                };
+                tick();
             });
         }
-
-        // Initialize counters when page loads
         window.addEventListener('load', animateCounters);
 
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    document.querySelector('nav ul').classList.remove('active');
-                }
-            });
+            anchor.addEventListener('click', function(e){ e.preventDefault(); const targetId = this.getAttribute('href'); if(targetId === '#') return; const targetElement = document.querySelector(targetId); if(targetElement){ window.scrollTo({ top: targetElement.offsetTop - 70, behavior: 'smooth' }); document.querySelector('nav ul').classList.remove('active'); } });
         });
     </script>
 </body>
-
 </html>
